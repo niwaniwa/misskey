@@ -227,7 +227,6 @@ const pagination: Paging = {
 	limit: 10,
 	params: computed(() => ({
 		userId: props.user.id,
-		includeSensitiveChannel: $i != null,
 	})),
 };
 
