@@ -162,6 +162,14 @@ export const paramDef = {
 		urlPreviewUserAgent: { type: 'string', nullable: true },
 		urlPreviewSummaryProxyUrl: { type: 'string', nullable: true },
 		nirilaBlockMentionsFromUnfamiliarRemoteUsers: { type: 'boolean', nullable: false },
+		nirilaAllowedUnfamiliarRemoteUserIds: {
+			type: 'array',
+			nullable: false,
+			items: {
+				type: 'string',
+				nullable: false,
+			},
+		}
 	},
 	required: [],
 } as const;
@@ -625,6 +633,10 @@ export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-
 
 			if (ps.nirilaBlockMentionsFromUnfamiliarRemoteUsers !== undefined) {
 				set.nirilaBlockMentionsFromUnfamiliarRemoteUsers = ps.nirilaBlockMentionsFromUnfamiliarRemoteUsers;
+			}
+
+			if (ps.nirilaAllowedUnfamiliarRemoteUserIds !== undefined) {
+				set.nirilaAllowedUnfamiliarRemoteUserIds = ps.nirilaAllowedUnfamiliarRemoteUserIds;
 			}
 
 			const before = await this.metaService.fetch(true);

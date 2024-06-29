@@ -485,6 +485,16 @@ export const meta = {
 				type: 'boolean',
 				optional: false, nullable: false,
 			},
+			nirilaAllowedUnfamiliarRemoteUserIds: {
+				type: 'array',
+				optional: false,
+				nullable: false,
+				items: {
+					type: 'string',
+					optional: false,
+					nullable: false,
+				},
+			},
 		},
 	},
 } as const;
@@ -620,6 +630,7 @@ export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-
 				urlPreviewUserAgent: instance.urlPreviewUserAgent,
 				urlPreviewSummaryProxyUrl: instance.urlPreviewSummaryProxyUrl,
 				nirilaBlockMentionsFromUnfamiliarRemoteUsers: instance.nirilaBlockMentionsFromUnfamiliarRemoteUsers,
+				nirilaAllowedUnfamiliarRemoteUserIds: instance.nirilaAllowedUnfamiliarRemoteUserIds,
 			};
 		});
 	}

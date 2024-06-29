@@ -630,4 +630,11 @@ export class MiMeta {
 		default: false,
 	})
 	public nirilaBlockMentionsFromUnfamiliarRemoteUsers: boolean;
+
+	@Column('varchar', {
+		length: 32,
+		array: true,
+		default: '{}',
+	})
+	public nirilaAllowedUnfamiliarRemoteUserIds: string[];
 }
