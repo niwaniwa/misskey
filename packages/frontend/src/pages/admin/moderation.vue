@@ -132,7 +132,7 @@ function save() {
 		hiddenTags: hiddenTags.value.split('\n'),
 		preservedUsernames: preservedUsernames.value.split('\n'),
 		nirilaBlockMentionsFromUnfamiliarRemoteUsers: nirilaBlockMentionsFromUnfamiliarRemoteUsers.value,
-		nirilaAllowedUnfamiliarRemoteUserIds: nirilaAllowedUnfamiliarRemoteUserIds.value == ''
+		nirilaAllowedUnfamiliarRemoteUserIds: nirilaAllowedUnfamiliarRemoteUserIds.value === ''
 			? [] : nirilaAllowedUnfamiliarRemoteUserIds.value.split('\n'),
 	}).then(() => {
 		fetchInstance(true);
