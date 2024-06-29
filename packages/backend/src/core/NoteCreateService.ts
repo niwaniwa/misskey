@@ -379,23 +379,21 @@ export class NoteCreateService implements OnApplicationShutdown {
 
 		const isAllowedToCreateNotification = () => {
 			const targetUserIds: string[][] = [];
-			targetUserIds.push(mentionedUsers.filter(x => x.host == null).map(x => x.id))
+			targetUserIds.push(mentionedUsers.filter(x => x.host == null).map(x => x.id));
 			if (data.visibility === 'specified' && data.visibleUsers != null)
 				targetUserIds.push(data.visibleUsers.filter(x => x.host == null).map(x => x.id));
-			if (data.reply != null && data.reply.userHost == null)
-				targetUserIds.push([data.reply.userId]);
-			if (this.isRenote(data) && this.isQuote(data) && data.renote.userHost === null)
-				targetUserIds.push([data.renote.userId]);
+			if (data.reply != null && data.reply.userHost == null) targetUserIds.push([data.reply.userId]);
+			if (this.isRenote(data) && this.isQuote(data) && data.renote.userHost === null) targetUserIds.push([data.renote.userId]);
 			const allowedIds = new Set(meta.nirilaAllowedUnfamiliarRemoteUserIds);
-			for (let targetUserIds1 of targetUserIds) {
-				for (let targetUserId of targetUserIds1) {
+			for (const targetUserIds1 of targetUserIds) {
+				for (const targetUserId of targetUserIds1) {
 					if (allowedIds.has(targetUserId)) {
 						return true;
 					}
 				}
 			}
 			return false;
-		}
+		};
 
 		if (meta.nirilaBlockMentionsFromUnfamiliarRemoteUsers && user.host !== null && willCauseNotification && !isAllowedToCreateNotification()) {
 			const userEntity = await this.usersRepository.findOneBy({ id: user.id });
