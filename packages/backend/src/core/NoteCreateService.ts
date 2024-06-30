@@ -386,12 +386,12 @@ export class NoteCreateService implements OnApplicationShutdown {
 			const allowedIds = new Set(meta.nirilaAllowedUnfamiliarRemoteUserIds);
 			for (const targetUserIds1 of targetUserIds) {
 				for (const targetUserId of targetUserIds1) {
-					if (allowedIds.has(targetUserId)) {
-						return true;
+					if (!allowedIds.has(targetUserId)) {
+						return false;
 					}
 				}
 			}
-			return false;
+			return true;
 		};
 
 		if (meta.nirilaBlockMentionsFromUnfamiliarRemoteUsers && user.host !== null && willCauseNotification && !isAllowedToCreateNotification()) {
