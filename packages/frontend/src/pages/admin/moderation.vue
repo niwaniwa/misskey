@@ -57,12 +57,12 @@ SPDX-License-Identifier: AGPL-3.0-only
 					</MkTextarea>
 
 					<MkSwitch v-model="nirilaBlockMentionsFromUnfamiliarRemoteUsers">
-						<template #label>未知のリモートユーザからの通知を生成するノートをブロックする</template>
+						<template #label>未知のリモートユーザーによる通知が発生するノートをブロックする</template>
 					</MkSwitch>
 
 					<MkTextarea v-model="hiddenTags">
-						<template #label>未知のリモートユーザからの通知を許可するローカルユーザのid</template>
-						<template #caption>9grmcrkrslのようなユーザのidであって@adminのようなユーザ名ではないことに気をつけてください。</template>
+						<template #label>未知のリモートユーザーによる通知を許可するローカルユーザーのID</template>
+						<template #caption>`@admin`のようなユーザ名ではなく、`9grmcrkrsl`のようなユーザーのIDであることに注意してください。</template>
 					</MkTextarea>
 				</div>
 			</FormSuspense>
