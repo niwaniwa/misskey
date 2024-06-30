@@ -378,17 +378,16 @@ export class NoteCreateService implements OnApplicationShutdown {
 			|| data.reply?.userHost === null || (this.isRenote(data) && this.isQuote(data) && data.renote?.userHost === null) || false;
 
 		const isAllowedToCreateNotification = () => {
-			const targetUserIds: string[][] = [];
-			targetUserIds.push(mentionedUsers.filter(x => x.host == null).map(x => x.id));
-			if (data.visibility === 'specified' && data.visibleUsers != null) targetUserIds.push(data.visibleUsers.filter(x => x.host == null).map(x => x.id));
-			if (data.reply != null && data.reply.userHost == null) targetUserIds.push([data.reply.userId]);
-			if (this.isRenote(data) && this.isQuote(data) && data.renote.userHost === null) targetUserIds.push([data.renote.userId]);
+			const targetUserIds: string[] = [
+				...mentionedUsers.filter(x => x.host == null).map(x => x.id),
+				...(data.visibility === 'specified' && data.visibleUsers != null ? data.visibleUsers.filter(x => x.host == null).map(x => x.id) : []),
+				...(data.reply != null && data.reply.userHost == null ? [data.reply.userId] : []),
+				...(this.isRenote(data) && this.isQuote(data) && data.renote.userHost === null ? [data.renote.userId] : []),
+			];
 			const allowedIds = new Set(meta.nirilaAllowedUnfamiliarRemoteUserIds);
-			for (const targetUserIds1 of targetUserIds) {
-				for (const targetUserId of targetUserIds1) {
-					if (!allowedIds.has(targetUserId)) {
-						return false;
-					}
+			for (const targetUserId of targetUserIds) {
+				if (!allowedIds.has(targetUserId)) {
+					return false;
 				}
 			}
 			return true;
