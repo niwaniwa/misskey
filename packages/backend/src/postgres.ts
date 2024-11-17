@@ -83,6 +83,7 @@ import { MiReversiGame } from '@/models/ReversiGame.js';
 import { Config } from '@/config.js';
 import MisskeyLogger from '@/logger.js';
 import { bindThis } from '@/decorators.js';
+import {MiBlockingReactionUser} from "@/models/_.js";
 
 pg.types.setTypeParser(20, Number);
 
@@ -154,6 +155,7 @@ export const entities = [
 	MiMuting,
 	MiRenoteMuting,
 	MiBlocking,
+	MiBlockingReactionUser,
 	MiNote,
 	MiNoteFavorite,
 	MiNoteReaction,

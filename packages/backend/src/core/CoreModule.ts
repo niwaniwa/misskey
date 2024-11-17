@@ -15,6 +15,8 @@ import { SystemWebhookService } from '@/core/SystemWebhookService.js';
 import { UserSearchService } from '@/core/UserSearchService.js';
 import { WebhookTestService } from '@/core/WebhookTestService.js';
 import { FlashService } from '@/core/FlashService.js';
+import { BlockingReactionUserEntityService } from '@/core/entities/BlockingReactionUserEntityService.js';
+import { BlockingReactionUserService } from '@/core/BlockingReactionUserService.js';
 import { AccountMoveService } from './AccountMoveService.js';
 import { AccountUpdateService } from './AccountUpdateService.js';
 import { AiService } from './AiService.js';
@@ -170,6 +172,7 @@ const $AntennaService: Provider = { provide: 'AntennaService', useExisting: Ante
 const $AppLockService: Provider = { provide: 'AppLockService', useExisting: AppLockService };
 const $AchievementService: Provider = { provide: 'AchievementService', useExisting: AchievementService };
 const $AvatarDecorationService: Provider = { provide: 'AvatarDecorationService', useExisting: AvatarDecorationService };
+const $BlockingReactionUserService: Provider = { provide: 'BlockingReactionUserService', useExisting: BlockingReactionUserService };
 const $CaptchaService: Provider = { provide: 'CaptchaService', useExisting: CaptchaService };
 const $CreateSystemUserService: Provider = { provide: 'CreateSystemUserService', useExisting: CreateSystemUserService };
 const $CustomEmojiService: Provider = { provide: 'CustomEmojiService', useExisting: CustomEmojiService };
@@ -254,6 +257,7 @@ const $AntennaEntityService: Provider = { provide: 'AntennaEntityService', useEx
 const $AppEntityService: Provider = { provide: 'AppEntityService', useExisting: AppEntityService };
 const $AuthSessionEntityService: Provider = { provide: 'AuthSessionEntityService', useExisting: AuthSessionEntityService };
 const $BlockingEntityService: Provider = { provide: 'BlockingEntityService', useExisting: BlockingEntityService };
+const $BlockingReactionUserEntityService: Provider = { provide: 'BlockingReactionUserEntityService', useExisting: BlockingReactionUserEntityService };
 const $ChannelEntityService: Provider = { provide: 'ChannelEntityService', useExisting: ChannelEntityService };
 const $ClipEntityService: Provider = { provide: 'ClipEntityService', useExisting: ClipEntityService };
 const $DriveFileEntityService: Provider = { provide: 'DriveFileEntityService', useExisting: DriveFileEntityService };
@@ -322,6 +326,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		AppLockService,
 		AchievementService,
 		AvatarDecorationService,
+		BlockingReactionUserService,
 		CaptchaService,
 		CreateSystemUserService,
 		CustomEmojiService,
@@ -406,6 +411,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		AppEntityService,
 		AuthSessionEntityService,
 		BlockingEntityService,
+		BlockingReactionUserEntityService,
 		ChannelEntityService,
 		ClipEntityService,
 		DriveFileEntityService,
@@ -472,6 +478,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		$AppLockService,
 		$AchievementService,
 		$AvatarDecorationService,
+		$BlockingReactionUserService,
 		$CaptchaService,
 		$CreateSystemUserService,
 		$CustomEmojiService,
@@ -556,6 +563,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		$AppEntityService,
 		$AuthSessionEntityService,
 		$BlockingEntityService,
+		$BlockingReactionUserEntityService,
 		$ChannelEntityService,
 		$ClipEntityService,
 		$DriveFileEntityService,
@@ -621,6 +629,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		AppLockService,
 		AchievementService,
 		AvatarDecorationService,
+		BlockingReactionUserService,
 		CaptchaService,
 		CreateSystemUserService,
 		CustomEmojiService,
@@ -704,6 +713,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		AppEntityService,
 		AuthSessionEntityService,
 		BlockingEntityService,
+		BlockingReactionUserEntityService,
 		ChannelEntityService,
 		ClipEntityService,
 		DriveFileEntityService,
@@ -852,6 +862,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		$AppEntityService,
 		$AuthSessionEntityService,
 		$BlockingEntityService,
+		$BlockingReactionUserEntityService,
 		$ChannelEntityService,
 		$ClipEntityService,
 		$DriveFileEntityService,

@@ -3847,8 +3847,10 @@ export type components = {
       isFollowed?: boolean;
       hasPendingFollowRequestFromYou?: boolean;
       hasPendingFollowRequestToYou?: boolean;
-      isBlocking?: boolean;
-      isBlocked?: boolean;
+			isBlocking?: boolean;
+			isBlocked?: boolean;
+			isReactionBlocking?: boolean;
+			isReactionBlocked?: boolean;
       isMuted?: boolean;
       isRenoteMuted?: boolean;
       /** @enum {string} */

@@ -19,6 +19,7 @@ import {
 	MiAuthSession,
 	MiAvatarDecoration,
 	MiBlocking,
+	MiBlockingReactionUser,
 	MiBubbleGameRecord,
 	MiChannel,
 	MiChannelFavorite,
@@ -286,6 +287,12 @@ const $blockingsRepository: Provider = {
 	inject: [DI.db],
 };
 
+const $blockingReactionUsersRepository: Provider = {
+	provide: DI.blockingReactionUsersRepository,
+	useFactory: (db: DataSource) => db.getRepository(MiBlockingReactionUser),
+	inject: [DI.db],
+};
+
 const $swSubscriptionsRepository: Provider = {
 	provide: DI.swSubscriptionsRepository,
 	useFactory: (db: DataSource) => db.getRepository(MiSwSubscription).extend(miRepository as MiRepository<MiSwSubscription>),
@@ -539,6 +546,7 @@ const $reversiGamesRepository: Provider = {
 		$mutingsRepository,
 		$renoteMutingsRepository,
 		$blockingsRepository,
+		$blockingReactionUsersRepository,
 		$swSubscriptionsRepository,
 		$hashtagsRepository,
 		$abuseUserReportsRepository,
@@ -611,6 +619,7 @@ const $reversiGamesRepository: Provider = {
 		$mutingsRepository,
 		$renoteMutingsRepository,
 		$blockingsRepository,
+		$blockingReactionUsersRepository,
 		$swSubscriptionsRepository,
 		$hashtagsRepository,
 		$abuseUserReportsRepository,
