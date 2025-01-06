@@ -47,7 +47,7 @@ const pagination = computed(() => tab.value === 'featured' ? {
 		userId: props.user.id,
 		withRenotes: tab.value === 'all',
 		withReplies: tab.value === 'all',
-		withChannelNotes: tab.value === 'all',
+		withChannelNotes: true,
 		withFiles: tab.value === 'files',
 		includeSensitiveChannel: $i != null,
 	},

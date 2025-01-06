@@ -63,6 +63,7 @@ import MkClipPreview from '@/components/MkClipPreview.vue';
 import { defaultStore } from '@/store.js';
 import { pleaseLogin } from '@/scripts/please-login.js';
 import { getServerContext } from '@/server-context.js';
+import { $i } from '@/account.js';
 
 const CTX_NOTE = getServerContext('note');
 
@@ -83,6 +84,8 @@ const prevUserPagination: Paging = {
 	params: computed(() => note.value ? ({
 		userId: note.value.userId,
 		untilId: note.value.id,
+		withChannelNotes: true,
+		includeSensitiveChannel: $i != null,
 	}) : undefined),
 };
 
@@ -93,6 +96,8 @@ const nextUserPagination: Paging = {
 	params: computed(() => note.value ? ({
 		userId: note.value.userId,
 		sinceId: note.value.id,
+		withChannelNotes: true,
+		includeSensitiveChannel: $i != null,
 	}) : undefined),
 };
 
